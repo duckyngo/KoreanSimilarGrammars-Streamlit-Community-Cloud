@@ -53,7 +53,7 @@ file = 'nguphapgiongnhau.csv'  # Update with the path to your CSV file
 grouped_data, meanings = load_data(file)
 
 # Streamlit UI
-st.title("Masking Check - Similar Words")
+st.title("Multiple Choice Questions on Korean Similar Grammar")
 st.write("Choose the correct similar word.")
 
 if 'question' not in st.session_state:
