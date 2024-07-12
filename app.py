@@ -53,8 +53,8 @@ file = 'nguphapgiongnhau.csv'  # Update with the path to your CSV file
 grouped_data, meanings = load_data(file)
 
 # Streamlit UI
-st.title("Multiple Choice Questions on Korean Similar Grammar")
-st.write("Choose the correct similar word.")
+st.title("Chọn ngữ pháp giống nhau trong Tiếng Hàn Quốc")
+st.write("Chọn ngữ pháp giống nhau với ngữ pháp được hiển thị.")
 
 if 'question' not in st.session_state:
     st.session_state.question = generate_question(grouped_data)
@@ -63,20 +63,20 @@ if 'question' not in st.session_state:
 
 shown_word, correct_word, options, meaning = st.session_state.question
 
-st.write(f"Select the word that is similar to: **{shown_word}**")
+st.write(f"Chọn ngữ pháp giống với ngữ pháp sau đây: **{shown_word}**")
 selected_option = st.radio("Options:", options, key="options")
 
-if st.button("Submit"):
+if st.button("Kiểm tra"):
     st.session_state.selected_option = selected_option
     if selected_option == correct_word:
         st.session_state.correct = True
-        st.success(f"Correct! The meaning is: \n{meaning}")
+        st.success(f"Correct! Nghĩa của ngữ pháp này là: \n{meaning}")
     else:
         st.session_state.correct = False
-        st.error(f"Incorrect. The correct word was: {correct_word}")
-        st.write(f"The meaning of your selected answer ({selected_option}) is: \n\n{meanings.get(selected_option, 'Meaning not found')}")
+        st.error(f"Sai rồi!! Ngữ pháp giống nhất là: {correct_word}")
+        st.write(f"Nghĩa của ngữ pháp được chọn ({selected_option}) là: \n\n{meanings.get(selected_option, 'Meaning not found')}")
 
-if st.button("Next Question"):
+if st.button("Câu hỏi tiếp theo"):
     st.session_state.question = generate_question(grouped_data)
     st.session_state.correct = None
     st.session_state.selected_option = None
