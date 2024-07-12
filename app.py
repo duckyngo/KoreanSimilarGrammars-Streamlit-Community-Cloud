@@ -53,7 +53,7 @@ file = 'nguphapgiongnhau.csv'  # Update with the path to your CSV file
 grouped_data, meanings = load_data(file)
 
 # Streamlit UI
-st.title("Chọn ngữ pháp giống nhau trong Tiếng Hàn Quốc")
+st.title("Ôn Thi TOPIK: Chọn ngữ pháp giống nhau")
 st.write("Chọn ngữ pháp giống nhau với ngữ pháp được hiển thị.")
 
 if 'question' not in st.session_state:
